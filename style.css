@@ -1,0 +1,13 @@
+:root {
+    --background--color= white;
+    --text-color= whitesmoke;
+    --base-space= 8px;
+}
+
+@media screen and (max-width: 768 px;) {
+    :root {
+        --background--color= salmon;
+        --text-color= whitesmoke;
+        --base-space= 8px;
+    }
+}
