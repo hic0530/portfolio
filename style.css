@@ -146,6 +146,7 @@ p {
 
 #home {
   background: url("img/background.png");
+  /* background-color: #090513; */
   padding: 40px;
   padding-top: 100px;
   text-align: center;
