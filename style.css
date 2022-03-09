@@ -143,7 +143,17 @@ p {
   color: var(--color-black);
   display: none;
 }
+/* Scroll */
+.navbar__arrow-btn {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
 
+  font-size: 32px;
+  color: var(--color-blue);
+  display: none;
+  /* transition: all var(--animation-duration) ease; */
+}
 #home {
   background: url("img/background.png");
   /* background-color: #090513; */

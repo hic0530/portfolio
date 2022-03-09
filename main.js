@@ -14,6 +14,7 @@ document.addEventListener('scroll', () =>{
 })
 
 // Make home slowly fade to transparent as the window scrolls down
+// and Show "arrow up" button when scrolling up
 const home= document.querySelector('.home__container');
 const homeHeight= home.getBoundingClientRect().height;
 document.addEventListener('scroll', () =>{
@@ -23,8 +24,20 @@ document.addEventListener('scroll', () =>{
     else{
         home.style.opacity= 0;
     }
+    if (home.style.opacity<0.1) {
+        arrowBtn.style.display= 'block';
+    }
+    else {
+        arrowBtn.style.display='none';
+    }
     
 })
+// Hndle click on "arrow" button
+const arrowBtn= document.querySelector('.navbar__arrow-btn');
+
+arrowBtn.addEventListener('click',()=>{
+    scrollIntoView('#home');
+});
 
 //Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
