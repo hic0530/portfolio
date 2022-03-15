@@ -143,6 +143,7 @@ p {
   color: var(--color-black);
   display: none;
 }
+
 /* Scroll */
 .navbar__arrow-btn {
   position: fixed;
