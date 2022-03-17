@@ -17,7 +17,7 @@ document.addEventListener('scroll', () =>{
 // and Show "arrow up" button when scrolling up
 const home= document.querySelector('.home__container');
 const homeHeight= home.getBoundingClientRect().height;
-document.addEventListener('scroll', () =>{
+document.addEventListener('scroll', ()=>{
     if (window.scrollY<homeHeight){
         home.style.opacity= (homeHeight-window.scrollY)/homeHeight;
     }
@@ -30,7 +30,6 @@ document.addEventListener('scroll', () =>{
     else {
         arrowBtn.style.display='none';
     }
-    
 })
 // Hndle click on "arrow" button
 const arrowBtn= document.querySelector('.navbar__arrow-btn');
@@ -60,3 +59,30 @@ function scrollIntoView(selector) {
     const scrollTo= document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: 'smooth'});
 }
+
+// Projects
+const categoryBtnContainer= document.querySelector('.work__categories');
+const projectContainer= document.querySelector('.work__projects');
+const projects= document.querySelectorAll('.project');
+
+categoryBtnContainer.addEventListener('click',(event)=>{
+    // const filter= event.target.dataset.filter;
+    // filter에 아무값도 들오오지 않는다면, 부모의 filter값을 넣자!
+    const filter= event.target.dataset.filter || event.target.parentNode.dataset.filter;
+    if(filter == null){
+        return;
+    }
+    projectContainer.classList.add('anim-out');
+    setTimeout(()=>{
+        projects.forEach((project)=>{
+            // console.log(project.dataset.type);
+            if (filter == '*' || filter == project.dataset.type) {
+                project.classList.remove('invisible');
+            } else {
+                project.classList.add('invisible');
+            }
+        })
+        projectContainer.classList.remove('anim-out');
+
+    }, 300)
+})
