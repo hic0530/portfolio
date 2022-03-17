@@ -41,13 +41,18 @@ arrowBtn.addEventListener('click',()=>{
 //Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click',(event)=>{
+    // Remove selection from the previous item and select the new one
+    const active= document.querySelector('.navbar__menu__item.active');
+    active.classList.remove('active');
     const target= event.target;
+    target.classList.add('active');
     const link= target.dataset.link;
     if (link == null){
         return;
     }
     scrollIntoView(link);
 })
+// Button state
 
 // Handle click on "contact me" button on home
 const contactMe = document.querySelector('.home__contact');
@@ -72,6 +77,13 @@ categoryBtnContainer.addEventListener('click',(event)=>{
     if(filter == null){
         return;
     }
+
+    // Remove selection from the previous item and select the new one
+    const active= document.querySelector('.category__btn.active');
+    active.classList.remove('active');
+    const target= event.target.nodeName ==='BUTTON'?event.target : event.target.parentNode;
+    target.classList.add('active');
+
     projectContainer.classList.add('anim-out');
     setTimeout(()=>{
         projects.forEach((project)=>{
@@ -86,3 +98,4 @@ categoryBtnContainer.addEventListener('click',(event)=>{
 
     }, 300)
 })
+
